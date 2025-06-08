@@ -10,8 +10,6 @@ API para monitoramento de regiões e sensores ambientais, desenvolvida em .NET 8
 - [Configuração e Execução](#configuração-e-execução)
 - [Acesso à API](#acesso-à-api)
 - [Endpoints Principais](#endpoints-principais)
-- [Exemplos de Requisições](#exemplos-de-requisições)
-- [Testes](#testes)
 
 ---
 
