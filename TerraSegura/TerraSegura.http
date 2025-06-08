@@ -1,0 +1,6 @@
+@TerraSegura_HostAddress = http://localhost:5182
+
+GET {{TerraSegura_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
