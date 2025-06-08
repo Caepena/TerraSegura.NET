@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TerraSegura.Domain.Entity;
+using TerraSegura.DTOs;
 using TerraSegura.Infrastructure.Context;
 
 namespace TerraSegura.Controllers
@@ -79,13 +80,23 @@ namespace TerraSegura.Controllers
         // POST: RegiaoMonitorada
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<RegiaoMonitorada>> PostRegiaoMonitorada(RegiaoMonitorada regiaoMonitorada)
+        public async Task<ActionResult<RegiaoMonitorada>> PostRegiaoMonitorada(RegiaoMonitoradaCreateDto dto)
         {
+            var regiaoMonitorada = new RegiaoMonitorada(
+                dto.Nome,
+                dto.Descricao,
+                dto.Latitude,
+                dto.Longitude,
+                dto.NivelRisco
+            );
+
             _context.regiaoMonitoradas.Add(regiaoMonitorada);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetRegiaoMonitorada", new { id = regiaoMonitorada.Id }, regiaoMonitorada);
         }
+
+
 
         // DELETE: RegiaoMonitorada/5
         [HttpDelete("{id}")]

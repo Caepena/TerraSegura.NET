@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TerraSegura.Domain.Entity;
+using TerraSegura.Domain.Enums;
+using TerraSegura.DTOs.TerraSegura.DTOs;
 using TerraSegura.Infrastructure.Context;
 
 namespace TerraSegura.Controllers
@@ -76,13 +78,24 @@ namespace TerraSegura.Controllers
         // POST: /SensorLeitura
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<SensorLeitura>> PostSensorLeitura(SensorLeitura sensorLeitura)
+        public async Task<ActionResult<SensorLeitura>> PostSensorLeitura(SensorLeituraCreateDto dto)
         {
+            if (!Enum.TryParse<TipoSensor>(dto.TipoSensor, true, out var tipoSensor))
+                return BadRequest("TipoSensor inválido.");
+
+            var sensorLeitura = new SensorLeitura(
+                dto.Valor,
+                dto.DataHora,
+                tipoSensor,
+                dto.RegiaoMonitoradaId
+            );
+
             _context.sensorLeituras.Add(sensorLeitura);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetSensorLeitura", new { id = sensorLeitura.Id }, sensorLeitura);
         }
+
 
         // DELETE: /SensorLeitura/5
         [HttpDelete("{id}")]
