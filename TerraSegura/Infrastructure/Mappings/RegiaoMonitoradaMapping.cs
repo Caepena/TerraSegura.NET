@@ -7,7 +7,7 @@ namespace TerraSegura.Infrastructure.Mappings
     {
         public void Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder<RegiaoMonitorada> builder)
         {
-            builder.ToTable("RegiaoMonitorada");
+            builder.ToTable("RegiaoMonitoradaNET");
             builder.HasKey(r => r.Id);
 
             builder.Property(r => r.Id)
@@ -27,12 +27,12 @@ namespace TerraSegura.Infrastructure.Mappings
             builder.Property(r => r.Latitude)
                 .HasColumnName("Latitude")
                 .IsRequired()
-                .HasColumnType("decimal(9,6)");
+                .HasColumnType("NUMBER(9,6)");
 
             builder.Property(r => r.Longitude)
                 .HasColumnName("Longitude")
                 .IsRequired()
-                .HasColumnType("decimal(9,6)");
+                .HasColumnType("NUMBER(9,6)");
 
             builder.Property(r => r.NivelRisco)
                 .HasColumnName("NivelRisco")

@@ -8,7 +8,7 @@ namespace TerraSegura.Infrastructure.Mappings
     {
         public void Configure(EntityTypeBuilder<SensorLeitura> builder)
         {
-            builder.ToTable("SensorLeitura");
+            builder.ToTable("SensorLeituraNET");
 
             builder.HasKey(sl => sl.Id);
 
@@ -19,12 +19,12 @@ namespace TerraSegura.Infrastructure.Mappings
             builder.Property(sl => sl.Valor)
                 .HasColumnName("Valor")
                 .IsRequired()
-                .HasColumnType("decimal(18,2)");
+                .HasColumnType("NUMBER(18,2)");
 
             builder.Property(sl => sl.DataHora)
                 .HasColumnName("DataHora")
                 .IsRequired()
-                .HasColumnType("datetime");
+                .HasColumnType("TIMESTAMP");
 
             builder.Property(sl => sl.TipoSensor)
                 .HasColumnName("TipoSensor")

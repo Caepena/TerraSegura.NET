@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
+using TerraSegura.Infrastructure.Context;
 
 public class Program
 {
@@ -25,7 +26,7 @@ public class Program
             options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
         });
 
-        builder.Services.AddDbContext<GameRentContext>(options =>
+        builder.Services.AddDbContext<TerraSeguraContext>(options =>
             options.UseOracle(builder.Configuration.GetConnectionString("Oracle")));
         var app = builder.Build();
         // Configure the HTTP request pipeline.
