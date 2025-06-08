@@ -11,7 +11,7 @@ namespace TerraSegura.Domain.Entity
         public decimal Longitude { get; private set; }
         public NivelRisco NivelRisco { get; private set; }
 
-        public List<SensorLeitura> Motos { get; private set; } = new List<SensorLeitura>();
+        public List<SensorLeitura> SensoresLeituras { get; private set; } = new List<SensorLeitura>();
 
         public RegiaoMonitorada(string nome, string descricao, decimal latitude, decimal longitude, NivelRisco nivelRisco)
         {
