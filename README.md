@@ -17,7 +17,7 @@ API para monitoramento de regiões e sensores ambientais, desenvolvida em .NET 8
 
 - [.NET 8 SDK](https://dotnet.microsoft.com/download)
 - Banco de dados Oracle (ou outro configurado no projeto)
-- Ferramenta para requisições HTTP (ex: [Postman](https://www.postman.com/), [curl](https://curl.se/))
+- Ferramenta para requisições HTTP (ex:[Swagger](https://swagger.io/) [Postman](https://www.postman.com/), [curl](https://curl.se/))
 
 ---
 
